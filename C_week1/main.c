@@ -28,8 +28,11 @@ int main(int argc, const char * argv[]) {
 //    void splitPrintReadNumber();
 //    splitPrintReadNumber();
     
-    void splitPrintReadNumber2();
-    splitPrintReadNumber2();
+//    void splitPrintReadNumber2();
+//    splitPrintReadNumber2();
+    
+    void calculateHighestCommonDivisor();
+    calculateHighestCommonDivisor();
     return 0;
 }
 
@@ -184,4 +187,19 @@ void splitPrintReadNumber2(){
         printf("%d\n",preDigit);
     }
     
+}
+
+//计算最大公约数
+void  calculateHighestCommonDivisor(){
+    int a,b;
+    int maxCommonDivisor;
+    a=35;
+    b=41;
+    while(a>0){
+        int modNum = b%a;
+        b=a;
+        a=modNum;
+        printf("b=%d,a=%d,modNum=%d\n",b,a,modNum);
+    }
+    printf("最大公约数为:%d\n",b);
 }
