@@ -17,8 +17,17 @@ int main(int argc, const char * argv[]) {
 //    void printNinetyNineMultiplication();
 //    printNinetyNineMultiplication();
     
-    void calculateSequence();
-    calculateSequence();
+//    void calculateSequence();
+//    calculateSequence();
+    
+//    void calculateMaxIntNumber();
+//    calculateMaxIntNumber();
+    
+//    void calculateMaxUnsignedIntNumber();
+//    calculateMaxUnsignedIntNumber();
+    
+    void printfDiffTypeNumber();
+    printfDiffTypeNumber();
     return 0;
 }
 
@@ -76,7 +85,7 @@ void calculateSequence(){
     double sum = 0.0;
     printf("请输入表达式的项数!\n");
     scanf("%d",&n);
-    
+
     for (int i = 1; i<=n; i++) {
         sum+=(numerator*1.0/denominator);
         int temp = numerator;
@@ -84,4 +93,64 @@ void calculateSequence(){
         denominator = temp;
     }
     printf("%d项多项式子计算结果为:%f\n",n,sum);
+   
+}
+
+//计算int的最大值
+void calculateMaxIntNumber(){
+    int a=0,b=1;
+    //一直加到越界 最大正整数int 2147483647 再加1 就成了-2147483648 2的31次幂
+    while (++a>0) ;
+    printf("最大的int数为:%d\n",a-1);
+    
+    while(a=a/10){
+        b++;
+    }
+    printf("int类型的最大位数位:%d\n",b);
+}
+
+/**格式化标示符：
+%d 十进制有符号整数
+%u 十进制无符号整数
+%ld 十进制长整型
+%lu 十进制无符号长整型
+%f 浮点数
+%s 字符串
+%c 单个字符
+%p 指针的值
+%e 指数形式的浮点数
+%x  %X 无符号以十六进制表示的整数
+%0 无符号以八进制表示的整数
+%g 自动选择合适的表示法*/
+void calculateMaxUnsignedIntNumber(){
+    unsigned int a=0;
+    int b=1;
+    //一直加到越界 最大正整数int 0-4294967295 再加1 就成了0 2的32次幂
+    while (0!=++a) ;
+    unsigned int c = a-1;
+    printf("最大的unsigned int数为:%u\n",a-1);
+    
+    while(c=c/10){
+        b++;
+    }
+    printf("unsigned int类型的最大位数位:%d\n",b);
+}
+
+//类型比较
+void printfDiffTypeNumber(){
+    char a = -1;
+    int b = -1;
+    
+//    printf("c=%d,i=%d\n",a,b);
+//    printf("c=%u,i=%u\n",a,b);
+    printf("c=%ld,i=%ld\n",a,b);
+//    printf("c=%lu,i=%lu\n",a,b);
+    
+    //大小写转换
+    char i = 'A';
+    i = i+'a'-'A';
+    printf("%c\n",i);
+    i = i+'A'-'a';
+    printf("%c\n",i);
+    
 }
