@@ -7,6 +7,7 @@
 //
 
 #include <stdio.h>
+#include <stdlib.h>
 
 void printNuber(int a){
     printf("%d\n",a);
@@ -20,9 +21,32 @@ int main(int argc, const char * argv[]) {
     
 //    void calculatePrimeNumberByArrays();
 //    calculatePrimeNumberByArrays();
-    void calculatePrimeNumberByArrays2();
-    calculatePrimeNumberByArrays2();
-    return 0;
+//    void calculatePrimeNumberByArrays2();
+//    calculatePrimeNumberByArrays2();
+    
+//    void swap(int *a,int *b);
+//
+//    int a =5;
+//    int b =10;
+//    swap(&a, &b);
+//    printf("a=%d,b=%d\n",a,b);
+//    return 0;
+    
+    
+    //指针测试 数组本身相当于特殊的指针 int a[] = int * const a 指针指向地址不能改变
+//    int a[10] = {10};
+//    int *p = a;
+//    printf("%p\n", a);
+//    printf("%p\n", &a[0]);
+//    printf("%p\n", p);
+//    printf("%p\n", a[0]);
+//    printf("%p\n", p[0]);
+    
+//    void dynamicMemoryDistribute();
+//    dynamicMemoryDistribute();
+    
+    void calculateMaxMallocDynamicMemorySize();
+    calculateMaxMallocDynamicMemorySize();
     
 }
 
@@ -112,5 +136,38 @@ void calculatePrimeNumberByArrays2(){
     }
     
 }
+//利用指针类型的数据交换a b 的值
+void swap(int *a,int *b){
+    int t = *a;
+    *a = *b;
+    *b = t;
+}
 
+//动态内存分配
+void dynamicMemoryDistribute(){
+    int arrLength;
+    printf("请输入想要构建的数组长度\n");
+    scanf("%d",&arrLength);
+    int *p = (int *)malloc(arrLength*sizeof(int));
+    for (int i = 0; i<arrLength; i++) {
+        p[i]=i;
+    }
+    
+    for (int i = 0; i<arrLength; i++) {
+        printf("arr[%d]=%d\n",i,p[i]);
+    }
+    
+    //释放malloc虚拟的内存空间 malloc申请的内存空间是以字节为单位的
+    free(p);
+}
 
+//这个macos执行结果十分巨大 不知道为什么 134209100MB
+void calculateMaxMallocDynamicMemorySize(){
+    void *p;
+    int cnt = 0;
+    while ((p=malloc(100*1024*1024))){
+        cnt++;
+    }
+    printf("程序一共申请了%d00M内存\n",cnt);
+    
+}
