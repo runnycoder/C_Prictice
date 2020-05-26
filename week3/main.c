@@ -87,7 +87,6 @@ void calculatePrimeNumberByArrays(){
 //求在给定值之内的素数
 void calculatePrimeNumberByArrays2(){
     const int maxNumber = 100;
-    int count = 0;
     int primeArr[maxNumber];//构建指定长度的数组，默认初始化每个数字都为素数
     for (int i = 0; i<maxNumber; i++) {
         primeArr[i]=1;
