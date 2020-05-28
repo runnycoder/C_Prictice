@@ -11,18 +11,25 @@
 int main(int argc, const char * argv[]) {
     // insert code here...
 //    char * const s = "hello!";
-//    int myStrLength(char const *s);
+    int myStrLength(char const *s);
 //    myStrLength(s);
     
-    char * const s1 = "abc";
-    char * const s2 = "abb";
-    int myStrCmp(const char *s1,const char *s2);
-    int interval =  myStrCmp(s1,s2);
-    printf("s1,s2相差%d\n",interval);
+    char s1[10] = "abc";
+    char s2[4] = "abb";
     
-    int myStrCmp2(const char *s1,const char *s2);
-    int interval2 = myStrCmp2(s1,s2);
-    printf("s1,s2相差%d\n",interval2);
+    
+//    int myStrCmp(const char *s1,const char *s2);
+//    int interval =  myStrCmp(s1,s2);
+//    printf("s1,s2相差%d\n",interval);
+//
+//    int myStrCmp2(const char *s1,const char *s2);
+//    int interval2 = myStrCmp2(s1,s2);
+//    printf("s1,s2相差%d\n",interval2);
+    
+    char* myStrCat(char *dst,const char *src);
+    char* temp =  myStrCat(s1,s2);
+    printf("temp length=%d,temp=%s\n",myStrLength(temp),temp);
+    
     return 0;
 }
 
@@ -58,6 +65,40 @@ int myStrCmp2(const char *s1,const char *s2){
     }
     return *s1-*s2;
 }
+
+//字符串copy src->dst 数组版本
+char* myStrCpy(char *dst,const char *src){
+    int index = 0;
+    while (src[index]!='\0') {
+        dst[index]=src[index];
+        index++;
+    }
+    dst[index]='\0';
+    return dst;
+}
+
+//字符串copy src->dst 指针版本
+char* myStrCpy2(char *dst,const char *src){
+    
+    char *ret = dst;//记录目标指针初始位置
+    while (*src) {
+        *dst++=*src++;
+    }
+    *dst='\0';
+    return ret;
+}
+
+//字符串链接
+char* myStrCat(char *dst,const char *src){
+    int srcLength =  myStrLength(src);
+    while (*src!='\0'){
+        dst[srcLength]=*src++;
+        srcLength ++;
+    }
+    dst[srcLength]='\0';
+    return dst;
+}
+
 
 
 
