@@ -8,6 +8,7 @@
 //二进制文件的读写
 #include <stdio.h>
 #include "student.h"
+#include <string.h>
 
 void getStudentList(Student students[],int studentNum);
 void readFile(FILE *fr ,int index);
@@ -25,19 +26,18 @@ int main(int argc, const char * argv[]) {
 //    }
 //    
     //读取报文的文本数据
-    FILE * fr = fopen("student.data",   "rs");
-    if(fr){
-        fseek(fr, 0L, SEEK_END);
-        long fileSize = ftell(fr);
-        int readNum =  fileSize/sizeof(Student);
-        int index = 0;
-        printf("文件中共有%d个Student结构体数据,你想看第几个?\n",readNum);
-        scanf("%d",&index);
-        readFile(fr, index-1);
-        fclose(fr);
-        
-    }
-    
+//    FILE * fr = fopen("student.data",   "rs");
+//    if(fr){
+//        fseek(fr, 0L, SEEK_END);
+//        long fileSize = ftell(fr);
+//        int readNum =  fileSize/sizeof(Student);
+//        int index = 0;
+//        printf("文件中共有%d个Student结构体数据,你想看第几个?\n",readNum);
+//        scanf("%d",&index);
+//        readFile(fr, index-1);
+//        fclose(fr);
+//
+//    }    
     
     return 0;
 }
